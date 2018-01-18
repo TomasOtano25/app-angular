@@ -11,11 +11,16 @@ import { TaskService } from '../../services/task.service';
 })
 export class TasksComponent implements OnInit {
   /* */
-  task: Task[];
+  tasks: Task[];
+  title: string;
   constructor(/* */ public taskService: TaskService) { }
 
   /*Primer metodo que se ejecuta*/
   ngOnInit() {
+    this.taskService.getTasks().subscribe(tasks => {
+      /*console.log(tasks);*/
+      this.tasks = tasks;
+    });
   }
 
 }

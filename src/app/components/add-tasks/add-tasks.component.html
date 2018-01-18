@@ -1,3 +1,19 @@
-<p>
-  add-tasks works!
-</p>
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">
+      <h5>Agregar Tarea (Add Task)</h5>
+    </span>
+   <form (ngSubmit)="onSubmit()">
+          <div class="input-field">
+              <input name="title" type="text" [(ngModel)]="task.title">
+              <label for="title">Agregar Titulo (Add Title)</label>
+          </div>
+      
+      <div class="input-field">
+          <input name="description" type="text" [(ngModel)]="task.description">
+          <label for="description">Descripcion (Description)</label>
+      </div>
+      <input type="submit" class="btn">
+   </form>
+  </div>
+</div>

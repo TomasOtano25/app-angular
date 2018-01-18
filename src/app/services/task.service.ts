@@ -16,6 +16,26 @@ export class TaskService {
   tasks: Observable<Task[]>;
   taskDoc: AngularFirestoreDocument<Task>;
 
-  constructor() { }
+  constructor(public afs: AngularFirestore) {
+    /* */
+    this.taskCollection = this.afs.collection('tasks');
+
+    /*this.tasks = this.taskCollection.valueChanges();*/
+    this.tasks = this.taskCollection.snapshotChanges().map(changes => {
+      return changes.map(a => {
+        const data = a.payload.doc.data() as Task;
+        data.id = a.payload.doc.id;
+        return data;
+      });
+    });
+   }
+
+   getTasks() {
+     return this.tasks;
+   }
+
+   addTask(task: Task) {
+     this.taskCollection.add(task);
+   }
 
 }

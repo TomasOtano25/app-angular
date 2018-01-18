@@ -10,6 +10,7 @@ import { environment } from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { TaskService } from './services/task.service';
+import { FormsModule } from '@angular/forms';
 /*import { AngularFireAuthModule } from 'angularfire2/auth';*/
 
 
@@ -22,6 +23,7 @@ import { TaskService } from './services/task.service';
   imports: [
     BrowserModule,
     /* */
+    FormsModule,
     AngularFireModule,
     AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebase, 'app-angular')

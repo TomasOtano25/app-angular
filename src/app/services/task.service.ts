@@ -38,4 +38,9 @@ export class TaskService {
      this.taskCollection.add(task);
    }
 
+   deleteTask(task: Task) {
+    this.taskDoc = this.afs.doc(`tasks/${task.id}`);
+    this.taskDoc.delete();
+   }
+
 }

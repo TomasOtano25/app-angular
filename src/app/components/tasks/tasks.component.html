@@ -1,9 +1,8 @@
 <div *ngIf="tasks?.length > 0; else noTasks">
   
     <ul class="collection" *ngFor="let task of tasks">
-        <li class="collection-item">
-            <strong>{{ task.title }} </strong>
-            <br> {{ task.description }} 
+        <li class="collection-item" (dblclick)="deleteTask($event, task)">
+            <strong>{{ task.title }} </strong>  : {{ task.description }} 
         </li>
     </ul>
 

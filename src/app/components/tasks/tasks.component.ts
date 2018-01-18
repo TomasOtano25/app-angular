@@ -23,4 +23,8 @@ export class TasksComponent implements OnInit {
     });
   }
 
+  deleteTask($event, task) {
+    this.taskService.deleteTask(task);
+  }
+
 }

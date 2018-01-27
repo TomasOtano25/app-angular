@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 /* */
 import { Task } from '../../models/task';
-import { TaskService } from '../../services/task.service'
+import { TaskService } from '../../services/task.service';
 import { log } from 'util';
 
 @Component({

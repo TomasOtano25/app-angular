@@ -10,13 +10,15 @@ import { environment } from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { TaskService } from './services/task.service';
+import { AuthService } from './services/auth.service';
 import { FormsModule } from '@angular/forms';
-/*import { AngularFireAuthModule } from 'angularfire2/auth';*/
-
+import { LoginComponent } from './components/login/login.component';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent,
     TasksComponent,
     AddTasksComponent
   ],
@@ -26,11 +28,13 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     AngularFireModule,
     AngularFirestoreModule,
-    AngularFireModule.initializeApp(environment.firebase, 'app-angular')
+    AngularFireModule.initializeApp(environment.firebase, 'app-angular'),
+    AngularFireAuthModule
   ],
   providers: [
     /* */
-    TaskService
+    TaskService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

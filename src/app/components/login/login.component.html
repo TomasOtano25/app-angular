@@ -1,6 +1,10 @@
 <div>
-  <form (ngSubmit)="onSubmit()">
-    <input type="text" placeholder="Email" [(ngModel)]="email">
-    <input type="text" placeholder="Password" [(ngModel)]="password">
-  </form>
+  <div *ngIf="authState | async as user; else showLogin">
+    <h1> Hello {{user.displayName }}!</h1>
+    <button (click)="logout()">Salir de la cuenta</button>
+  </div>
+  <ng-template #showLogin>
+    <p>Please Login.</p>
+    <button (click)="login()">Login with Google</button>
+  </ng-template>
 </div>

@@ -1,8 +1,14 @@
 <div>
   <div *ngIf="authState | async as user; else showLogin">
-    <h1> Hello {{user.displayName}}!</h1>
+    <ul class="collection">
+      <li class="collection-item avatar">
+        <img src="{{user.photoURL}}" alt="{{user.photoURL}}" class="circle">
+        <h1 class="title"> Hello {{user.displayName}}!</h1>
+      </li>
+    </ul>
     <button (click)="logout()"><i class="fab fa-google"></i> Salir</button>
     <p>{{ seeEmail }}</p>
+    
   </div>
   <ng-template #showLogin>
 
@@ -16,8 +22,8 @@
         </form>
         <div class="container">
           <div class="row buttons">
-            <button (click)="loginGoogle()" class="col s8 btn white"><i class="fa fa-google" aria-hidden="true"></i> Login with Google</button>
-            <button (click)="loginFacebook()" class=" col s8 btn blue darken-4"><i class="fa fa-facebook" aria-hidden="true"></i> Login with Facebook</button>
+            <button (click)="loginGoogle()" class="col s10 btn white"><i class="fa fa-google" aria-hidden="true"></i> Login with Google</button>
+            <button (click)="loginFacebook()" class=" col s10 btn blue darken-4"><i class="fa fa-facebook" aria-hidden="true"></i> Login with Facebook</button>
           </div>
         </div>
       </div>

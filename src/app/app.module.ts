@@ -15,6 +15,20 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
+/*Rutas*/
+import { RouterModule, Routes} from '@angular/router';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: LoginComponent
+  },
+  {
+    path: 'tasks',
+    component: TasksComponent
+  }
+];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +43,8 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
     AngularFireModule,
     AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebase, 'app-angular'),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [
     /* */

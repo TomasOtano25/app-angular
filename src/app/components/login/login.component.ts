@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { AuthService } from '../../services/auth.service';
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-login',
@@ -18,6 +19,9 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
    this.authState =  this.authService.authState();
+   /*this.authState.forEach(element => {
+     console.log(element);
+   });*/
   }
 
   loginGoogle() {
@@ -29,7 +33,6 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    console.log(this.email, this.password);
     this.authService.signon(this.email, this.password);
   }
 

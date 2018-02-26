@@ -1,14 +1,13 @@
 <nav class=" blue lighten-1">
   <div class="navbar-wrapper">
-    <a href="#" class="brand-logo center" >
+    <a routerLink="" class="brand-logo center" >
         Tasks App
     </a>
+    <a routerLink="tasks"> Tasks</a>
   </div>
 </nav>
 
 <div class="container">
-  <app-login></app-login>
-  <app-add-tasks></app-add-tasks>
-  <app-tasks></app-tasks>
+  <router-outlet></router-outlet>
 </div>
 
